@@ -1,32 +1,37 @@
-# React + TypeScript + Vite
+# Packet Dash
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Packet Dash is a short browser-based game for Year 5/6 pupils learning about computer networks.
 
-Currently, two official plugins are available:
+The player helps Pip the packet travel from a laptop to a website server by answering mission-based questions about routers, packets, IP addresses, servers, and encryption.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Topic
 
-## React Compiler
+Computer networks and how data travels across the internet.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the Oxlint configuration
+- 5 short missions
+- Story-based quiz flow
+- Score tracking
+- Feedback after each answer
+- End badge based on score
+- Hidden packet journey path
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Tech Stack
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- React
+- TypeScript
+- Vite
+- CSS
+
+## Run Locally
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Build
+```bash
+npm run build
+```
