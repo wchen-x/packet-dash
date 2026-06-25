@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import "./App.css";
 import { levels } from "./data/levels";
 
@@ -11,6 +11,9 @@ function App() {
   const [gameFinished, setGameFinished] = useState(false);
 
   const currentLevel = levels[levelIndex];
+  const shuffledOptions = useMemo(() => {
+    return [...currentLevel.options].sort(() => Math.random() - 0.5);
+  }, [currentLevel]);
 
   function startGame() {
     setStarted(true);
@@ -85,6 +88,13 @@ function App() {
           ? "Pip delivered the data and made it back to the laptop."
           : "Pip made it back, but some network steps need another try.";
 
+    const badge =
+      score === levels.length
+        ? "Packet Pro"
+        : score >= 3
+          ? "Network Navigator"
+          : "Packet Trainee";
+
     return (
       <main className="app">
         <section className="start-card">
@@ -97,6 +107,8 @@ function App() {
           <p className="subtitle">
             You scored {score} out of {levels.length}
           </p>
+
+          <p className="badge">{badge}</p>
 
           <p className="description">{resultMessage}</p>
 
@@ -130,7 +142,7 @@ function App() {
         <h2>{currentLevel.question}</h2>
 
         <div className="options">
-          {currentLevel.options.map((option) => (
+          {shuffledOptions.map((option) => (
             <button
               key={option}
               className={`option-button ${
