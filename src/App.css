@@ -46,7 +46,7 @@ h1 {
 }
 
 .start-button {
-  border: 0;
+  border: 3px solid #102033;
   border-radius: 999px;
   padding: 16px 28px;
   background: #22c55e;
@@ -54,12 +54,12 @@ h1 {
   font-size: 1.15rem;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 6px 0 #15803d;
+  box-shadow: 4px 4px 0 #102033;
 }
 
 .start-button:hover {
-  transform: translateY(2px);
-  box-shadow: 0 4px 0 #15803d;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #102033;
 }
 
 .badge {
@@ -79,7 +79,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 12px;
-  margin: 28px 0;
+  margin: 24px 0;
   position: relative;
 }
 
@@ -88,16 +88,17 @@ h1 {
   justify-items: center;
   gap: 8px;
   color: #64748b;
-  font-weight: 700;
+  font-weight: 800;
   position: relative;
+  text-align: center;
 }
 
 .route-step:not(:last-child)::after {
   content: "";
   position: absolute;
-  top: 22px;
-  left: calc(50% + 24px);
-  width: calc(100% - 36px);
+  top: 24px;
+  left: calc(50% + 26px);
+  width: calc(100% - 40px);
   height: 4px;
   border-radius: 999px;
   background: #cbd5e1;
@@ -112,19 +113,156 @@ h1 {
 }
 
 .route-node {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   display: grid;
   place-items: center;
   border: 3px solid #102033;
   border-radius: 50%;
-  background: #ffffff;
+  background: #f8fafc;
   color: #102033;
   font-weight: 900;
-  box-shadow: 3px 3px 0 #102033;
+  box-shadow: 4px 4px 0 #102033;
   z-index: 1;
 }
 
 .route-step.active .route-node {
   background: #facc15;
+}
+
+.game-card {
+  width: min(100%, 780px);
+  padding: 32px;
+  border: 4px solid #102033;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 10px 10px 0 #102033;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.score {
+  margin: 0;
+  padding: 8px 14px;
+  border: 3px solid #102033;
+  border-radius: 999px;
+  background: #dbeafe;
+  font-weight: 800;
+}
+
+.story {
+  margin: 24px 0 16px;
+  padding: 18px;
+  border: 3px solid #102033;
+  border-radius: 14px;
+  background: #f0f9ff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  box-shadow: 4px 4px 0 #102033;
+}
+
+h2 {
+  margin: 0 0 20px;
+  font-size: 1.8rem;
+  line-height: 1.25;
+}
+
+.options {
+  display: grid;
+  gap: 14px;
+}
+
+.option-button {
+  width: 100%;
+  border: 3px solid #102033;
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: #ffffff;
+  color: #102033;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 6px 6px 0 #102033;
+}
+
+.option-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0 #102033;
+}
+
+.option-button.correct {
+  background: #bbf7d0;
+}
+
+.option-button.wrong {
+  background: #fecaca;
+}
+
+.feedback {
+  margin-top: 24px;
+  padding: 18px;
+  border: 3px solid #102033;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 #102033;
+}
+
+.feedback p {
+  margin: 8px 0 16px;
+  line-height: 1.5;
+}
+
+.correct-box {
+  background: #dcfce7;
+}
+
+.wrong-box {
+  background: #fee2e2;
+}
+
+.next-button {
+  border: 3px solid #102033;
+  border-radius: 999px;
+  padding: 12px 22px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #102033;
+}
+
+.next-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #102033;
+}
+
+@media (max-width: 640px) {
+  .game-card {
+    padding: 24px 18px;
+  }
+
+  .game-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .route {
+    gap: 8px;
+  }
+
+  .route-node {
+    width: 42px;
+    height: 42px;
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
 }
