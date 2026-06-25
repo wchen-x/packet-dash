@@ -10,6 +10,8 @@ function App() {
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [gameFinished, setGameFinished] = useState(false);
 
+  const routeSteps = ["Laptop", "Router", "Internet", "Server", "Laptop"];
+
   const currentLevel = levels[levelIndex];
   const shuffledOptions = useMemo(() => {
     return [...currentLevel.options].sort(() => Math.random() - 0.5);
@@ -130,11 +132,25 @@ function App() {
           </p>
         </div>
 
-        <div className="route">
-          <span>Laptop</span>
-          <span>Router</span>
-          <span>Internet</span>
-          <span>Server</span>
+        <div className="route" aria-label="Packet journey">
+          {routeSteps.map((step, index) => {
+            const isPastStep = index < levelIndex;
+            const isCurrentStep = index === levelIndex;
+            const isRevealed = isPastStep || (isCurrentStep && selectedAnswer !== null);
+
+            return (
+              <div
+                key={`${step}-${index}`}
+                className={`route-step ${index <= levelIndex ? "active" : ""}`}
+              >
+                <div className="route-node">
+                  {isCurrentStep ? "Pip" : index + 1}
+                </div>
+
+                <span>{isRevealed ? step : "???"}</span>
+              </div>
+            );
+          })}
         </div>
 
         <p className="story">{currentLevel.story}</p>

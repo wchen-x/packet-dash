@@ -74,3 +74,57 @@ h1 {
   font-weight: 800;
   box-shadow: 4px 4px 0 #102033;
 }
+
+.route {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin: 28px 0;
+  position: relative;
+}
+
+.route-step {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-weight: 700;
+  position: relative;
+}
+
+.route-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: calc(50% + 24px);
+  width: calc(100% - 36px);
+  height: 4px;
+  border-radius: 999px;
+  background: #cbd5e1;
+}
+
+.route-step.active {
+  color: #102033;
+}
+
+.route-step.active:not(:last-child)::after {
+  background: #38bdf8;
+}
+
+.route-node {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 3px solid #102033;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #102033;
+  font-weight: 900;
+  box-shadow: 3px 3px 0 #102033;
+  z-index: 1;
+}
+
+.route-step.active .route-node {
+  background: #facc15;
+}
